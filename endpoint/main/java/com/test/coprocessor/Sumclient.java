@@ -44,21 +44,21 @@
             HTable table = (HTable) conn.getTable(TableName.valueOf(tableName));  
 	    System.out.println("table is: "+table);
             //table.setOperationTimeout(10);  
-//	    Admin admin = conn.getAdmin();
-//	    System.out.println("admin is: "+ admin);
-//	    admin.disableTable(TableName.valueOf(tableName));
-//	    System.out.println("disable table");
-//	    HTableDescriptor hTableDescriptor = new HTableDescriptor(tableName);
-////	    hTableDescriptor.setValue("COPROCESSOR$1", path + "|"
-////				+ endpointTriger.class + "|"
-////				+ Coprocessor.PRIORITY_USER);
-//	    if (!hTableDescriptor.hasCoprocessor(endpointTrigger.class.getCanonicalName())){
-//	    hTableDescriptor.addCoprocessor(endpointTrigger.class.getCanonicalName(), new Path(path), Coprocessor.PRIORITY_USER, null);
-//	    System.out.println("add coprocessor");
-//	    admin.modifyTable(TableName.valueOf(tableName), hTableDescriptor);
-//	    admin.enableTable(TableName.valueOf(tableName));
-//	    System.out.println("enable table");
-//	    }
+	    Admin admin = conn.getAdmin();
+	    System.out.println("admin is: "+ admin);
+	    admin.disableTable(TableName.valueOf(tableName));
+	    System.out.println("disable table");
+	    HTableDescriptor hTableDescriptor = new HTableDescriptor(tableName);
+//	    hTableDescriptor.setValue("COPROCESSOR$1", path + "|"
+//				+ endpointTriger.class + "|"
+//				+ Coprocessor.PRIORITY_USER);
+	    if (!hTableDescriptor.hasCoprocessor(endpointTrigger.class.getCanonicalName())){
+	    hTableDescriptor.addCoprocessor(endpointTrigger.class.getCanonicalName(), new Path(path), Coprocessor.PRIORITY_USER, null);
+	    System.out.println("add coprocessor");
+	    admin.modifyTable(TableName.valueOf(tableName), hTableDescriptor);
+	    admin.enableTable(TableName.valueOf(tableName));
+	    System.out.println("enable table");
+	    }
             // 
             final SumRequest request = SumRequest.newBuilder().setFamily("data").setColumn("c1").build();  
               
@@ -86,7 +86,7 @@
             //  
             System.out.println("count: " + count + "  sum: " + sum);  
             //  
-//	    hTableDescriptor.removeCoprocessor(endpointTrigger.class.getCanonicalName());
+	    hTableDescriptor.removeCoprocessor(endpointTrigger.class.getCanonicalName());
             table.close();  
             conn.close();  
         }  
