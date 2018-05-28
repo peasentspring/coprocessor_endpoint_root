@@ -4,7 +4,7 @@ alter 'endpointTest', 'coprocessor'=>'hdfs://192.168.0.178:9000/springz/test-1.0
 alter 'endpointTest', METHOD => 'table_att_unset', NAME => 'coprocessor$1'
 
 
-mvn install:install-file -Dfile=/home/spring/springz/testmvn/test/jroot_6.06.06_v0.6.1.jar -DgroupId=net.blackruffy.root -DartifactId=root -Dversion=1.0 -Dpackage=jar
+mvn install:install-file -Dfile=/home/spring/springz/testmvn/test/jroot_6.06.06_v0.6.1.jar -DgroupId=net.blackruffy.root -DartifactId=root -Dversion=1.0 -Dpackaging=jar
 
 <systemPath>${project.basedir}/jroot_6.06.06_v0.6.1.jar</systemPath>
 
